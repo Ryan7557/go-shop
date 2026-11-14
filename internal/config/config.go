@@ -88,7 +88,7 @@ func Load() (*Config, error) {
 	}, nil
 }
 
-func getEnv(key string, defaultValue string) string {
+func getEnv(key, defaultValue string) string {
 	if value := os.Getenv(key); value != "" {
 		return value
 	}
