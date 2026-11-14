@@ -32,12 +32,12 @@ const (
 )
 
 type RefreshToken struct {
-	ID        uint      `json:"id" gorm:"primaryKey"`
-	UserID    uint      `json:"user_id" gorm:"not null"`
-	Token     string    `json:"token" gorm:"uniqueIndex;not null"`
-	ExpiresAt time.Time `json:"expires_at" gorm:"not null"`
-	CreatedAt time.Time `json:"created_at"`
+	ID        uint           `json:"id" gorm:"primaryKey"`
+	UserID    uint           `json:"user_id" gorm:"not null"`
+	Token     string         `json:"token" gorm:"uniqueIndex;not null"`
+	ExpiresAt time.Time      `json:"expires_at" gorm:"not null"`
+	CreatedAt time.Time      `json:"created_at"`
 	DeletedAt gorm.DeletedAt `json:"-" gorm:"index"`
-	
+
 	User User `json:"-"`
 }
