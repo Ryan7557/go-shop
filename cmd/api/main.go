@@ -65,7 +65,8 @@ func main() {
 	defer cancel()
 
 	if err := httpServer.Shutdown(ctx); err != nil {
-		log.Fatal().Err(err).Msg("failed to shutdown http server")
+		log.Error().Err(err).Msg("failed to shutdown http server")
+		return
 	}
 
 	log.Info().Msg("shutting down database")
