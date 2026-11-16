@@ -22,6 +22,10 @@ dev:
 lint:
 	golangci-lint run ./...
 
+format: 
+	gofmt -s -w .
+	goimports -w .
+
 migrate-up:
 	migrate -path db/migrations -database "postgresql://postgres:password@localhost:5432/ecommerce_shop?sslmode=disable" up
 migrate-down:
