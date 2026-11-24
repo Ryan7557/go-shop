@@ -1,7 +1,7 @@
 CREATE TABLE product_images (
     id SERIAL PRIMARY KEY,
     product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    url VARCHAR(500),
+    url VARCHAR(500) NOT NULL,
     alt_text VARCHAR(255),
     is_primary BOOLEAN DEFAULT false,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
