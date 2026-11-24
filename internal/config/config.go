@@ -9,11 +9,11 @@ import (
 )
 
 type Config struct {
-	Server       ServerConfig
-	Database     DatabaseConfig
-	JWT          JWTConfig
-	AWS          AWSConfig
-	UploadConfig UploadConfig
+	Server   ServerConfig
+	Database DatabaseConfig
+	JWT      JWTConfig
+	AWS      AWSConfig
+	Upload   UploadConfig
 }
 
 type ServerConfig struct {
@@ -81,7 +81,7 @@ func Load() (*Config, error) {
 			S3Bucket:        getEnv("AWS_S3_BUCKET", "ecommerce-uploads"),
 			S3Endpoint:      getEnv("AWS_S3_ENDPOINT", "http://localhost:4566"),
 		},
-		UploadConfig: UploadConfig{
+		Upload: UploadConfig{
 			Path:        getEnv("UPLOAD_PATH", "./uploads"),
 			MaxFileSize: maxUploadSize,
 		},

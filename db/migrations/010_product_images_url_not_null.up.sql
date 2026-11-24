@@ -1,0 +1,2 @@
+ALTER TABLE product_images
+ALTER COLUMN url SET NOT NULL;

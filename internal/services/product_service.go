@@ -176,6 +176,20 @@ func (s *ProductService) GetProducts(page, limit int) ([]dto.ProductResponse, *u
 	return response, meta, nil
 }
 
+func (s *ProductService) AddProductImage(productID uint, url, altText string) error {
+	var count int64
+	s.db.Model(&models.ProductImage{}).Where("product_id = ?", productID).Count(&count)
+
+	image := models.ProductImage{
+		ProductID: productID,
+		URL:       url,
+		AltText:   altText,
+		IsPrimary: count == 0,
+	}
+
+	return s.db.Create(&image).Error
+}
+
 func (s *ProductService) convertToProductResponse(product *models.Product) dto.ProductResponse {
 	images := make([]dto.ProductImageResponse, len(product.Images))
 	for i := range product.Images {
